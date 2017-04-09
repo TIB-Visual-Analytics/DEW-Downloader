@@ -145,7 +145,7 @@ def main():
         x.join()
 
     # write missed files
-    with open(os.path.join(output_path, 'missed.csv'), 'w') as missed_file:
+    with open(os.path.join(output_path, 'missing_images.csv'), 'w') as missed_file:
         spamwriter = csv.writer(missed_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for entry in missed_images:
             spamwriter.writerow(entry)
