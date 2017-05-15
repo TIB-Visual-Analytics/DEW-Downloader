@@ -1,5 +1,5 @@
 # DEW-Downloader
-Python3 downloader for the Date Estimation in the Wild dataset
+Python3 downloader for the dataset: Date Estimation in the Wild 
 
 We provide two versions of the downloader:
   downloader.py
@@ -12,7 +12,7 @@ numpy package.
 Both version can be executed in the same way
 
 1. Download the meta.csv from: https://doi.org/10.22000/0001abcde
-2. Run the script in the following way:
+2. Run the script:
 
 ```bash
   python3 downloader.py -i <path/to/meta.csv>
