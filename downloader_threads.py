@@ -30,6 +30,7 @@ LICENSE_URL = 8
 
 THREADS = 8
 
+DOWNLOAD_TIMEOUT_SECS = 2
 
 def chunks(l, n):
     index_list = np.linspace(0, len(l), n + 1)
@@ -40,10 +41,10 @@ def chunks(l, n):
 def read_image(url):
 
     try:
-        with urllib.request.urlopen(url) as f:
+        with urllib.request.urlopen(url, timeout = DOWNLOAD_TIMEOUT_SECS) as f:
             return (f.read())
     except urllib.error.URLError as err:
-        pass
+        print("URLError: " + str(err.reason))
     except urllib.error.HTTPError as err:
         print(str(err.code) + " : " + str(err.reason))
         if err.code == 429:
