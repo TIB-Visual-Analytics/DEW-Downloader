@@ -31,7 +31,7 @@ DOWNLOAD_TIMEOUT_SECS = 2
 def read_image(url):
 
     try:
-        with urllib.request.urlopen(url, timeout = DOWNLOAD_TIMEOUT_SECS) as f:
+        with urllib.request.urlopen(url, timeout=DOWNLOAD_TIMEOUT_SECS) as f:
             return (f.read())
     except urllib.error.URLError as err:
         print("URLError: " + str(err.reason))
@@ -86,7 +86,7 @@ def main():
     # read meta.csv
     missed_images = []
     images_to_download = []
-    with open(args.input_path, 'r') as source_file:
+    with open(args.input_path, 'r', encoding='utf-8') as source_file:
         spamreader = csv.reader(source_file, delimiter=',')
         for row in spamreader:
             if re.match(flickr_id_re, row[FLICKR_ID]):
