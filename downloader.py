@@ -25,14 +25,16 @@ TITLE = 6
 LICENSE_TEXT = 7
 LICENSE_URL = 8
 
+DOWNLOAD_TIMEOUT_SECS = 2
+
 
 def read_image(url):
 
     try:
-        with urllib.request.urlopen(url) as f:
+        with urllib.request.urlopen(url, timeout = DOWNLOAD_TIMEOUT_SECS) as f:
             return (f.read())
     except urllib.error.URLError as err:
-        pass
+        print("URLError: " + str(err.reason))
     except urllib.error.HTTPError as err:
         print(str(err.code) + " : " + str(err.reason))
         if err.code == 429:
